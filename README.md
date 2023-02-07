@@ -34,3 +34,61 @@ Microservices - Microservices architecture is tailor-made for DevOps with its se
 # What makes a good Dev Environment?
 
 
+
+
+
+# What you need to setup a dev environment 
+
+   ## Vagrant --- Gives instructions to software 
+   ```````
+   follow download link on vagrant website.
+- Common commands:
+     box             manages boxes: installation, removal, etc.
+     connect         connect to a remotely shared Vagrant environment
+     destroy         stops and deletes all traces of the vagrant machine
+     global-status   outputs status Vagrant environments for this user
+     halt            stops the vagrant machine
+     help            shows the help for a subcommand
+     hosts           Information about hostnames managed by the vagrant-hosts plugin
+     hostsupdater    
+     init            initializes a new Vagrant environment by creating a Vagrantfile
+     login           log in to HashiCorp\'s Atlas
+     package         packages a running vagrant environment into a box
+     plugin          manages plugins: install, uninstall, update, etc.
+     port            displays information about guest port mappings
+     powershell      connects to machine via powershell remoting
+     provision       provisions the vagrant machine
+     push            deploys code in this environment to a configured destination
+     rdp             connects to machine via RDP
+     rebuild         plugin: vagrant-digitalocean: destroys and ups the vm with the same ip address
+     reload          restarts vagrant machine, loads new Vagrantfile configuration
+     resume          resume a suspended vagrant machine
+     share           share your Vagrant environment with anyone in the world
+     snapshot        manages snapshots: saving, restoring, etc.
+     ssh             connects to machine via SSH
+     ssh-config      outputs OpenSSH valid configuration to connect to the machine
+     status          outputs status of the vagrant machine
+     suspend         suspends the machine
+     up              starts and provisions the vagrant environment
+     vbguest         
+     version         prints current and latest Vagrant version
+```````
+
+  
+  
+## Virtual box --- always run as admin 
+
+
+
+ ## Ruby --- Download online from Ruby website. To find version in gitbash do "ruby --version" 
+
+
+ ## Bash 
+
+
+
+## Git
+
+
+## SSH
+
