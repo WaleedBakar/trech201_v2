@@ -92,3 +92,98 @@ Microservices - Microservices architecture is tailor-made for DevOps with its se
 
 ## SSH
 
+## How to reslove error message
+
+During the vagrant "up stage" i encounted an error message that read. 
+```` git 
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'ubuntu/xenial64' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+The box 'ubuntu/xenial64' could not be found or
+could not be accessed in the remote catalog. If this is a private
+box on HashiCorp's Vagrant Cloud, please verify you're logged in via
+`vagrant login`. Also, please double-check the name. The expanded
+URL and error message are shown below:
+
+URL: ["https://vagrantcloud.com/ubuntu/xenial64"]
+Error: schannel: next InitializeSecurityContext failed: Unknown error (0x80092012) - The revocation function was unable to check revocation for the certificate.
+`````
+
+
+To troubleshoot this issue i found a really good article on how to fix it from the following. https://devopslite.com/vagrant-was-unable-to-check-revocation-for-the-certificate/.
+After the following these steps i have found that i needed to add the following.
+````
+
+config.vm.box_download_insecure=true
+
+````
+
+By doing this it allowe me to complete the install of the virtual machine on virtual box and has removed the error. The terminal now shows this.
+
+
+`````
+
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'ubuntu/xenial64' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Loading metadata for box 'ubuntu/xenial64'
+    default: URL: https://vagrantcloud.com/ubuntu/xenial64
+==> default: Adding box 'ubuntu/xenial64' (v20211001.0.0) for provider: virtualbox
+    default: Downloading: https://vagrantcloud.com/ubuntu/boxes/xenial64/versions/20211001.0.0/providers/virtualbox.box
+Download redirected to host: cloud-images.ubuntu.com
+    default:
+==> default: Successfully added box 'ubuntu/xenial64' (v20211001.0.0) for 'virtualbox'!
+==> default: Importing base box 'ubuntu/xenial64'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'ubuntu/xenial64' version '20211001.0.0' is up to date...
+==> default: Setting the name of the VM: trech201_v2_default_1675789868029_27621
+Vagrant is currently configured to create VirtualBox synced folders with
+the `SharedFoldersEnableSymlinksCreate` option enabled. If the Vagrant
+guest is not trusted, you may want to disable this option. For more
+information on this option, please refer to the VirtualBox manual:
+
+  https://www.virtualbox.org/manual/ch04.html#sharedfolders
+
+This option can be disabled globally with an environment variable:
+
+  VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
+
+or on a per folder basis within the Vagrantfile:
+
+  config.vm.synced_folder '/host/path', '/guest/path', SharedFoldersEnableSymlinksCreate: false
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 5.1.38
+    default: VirtualBox Version: 6.1
+==> default: Mounting shared folders...
+    default: /vagrant => C:/Users/Walee/tech201_virtualisation.git/trech201_v2
+``````
+This shows that the virtual machine is now up and running via virtual box.
