@@ -28,3 +28,9 @@ v2
 
 Microservices - Microservices architecture is tailor-made for DevOps with its services-based approach that allows organizations to break down the application into smaller services. This enables delivery teams to tackle individual services as separate entities—ultimately simplifying the development, testing, and deployment.
 
+# DevEnvironments 
+  A DevOps development environment should not only edit and debug code, but integrate with the rest of the DevOps cycle, including testing, version control, and production monitoring. Microsoft provides two major development environments to support DevOps, Visual Studio and Visual Studio Code. Allows teams to be standarised and increases development teams worklfow if everyone works in the same environment.
+
+# What makes a good Dev Environment?
+
+
