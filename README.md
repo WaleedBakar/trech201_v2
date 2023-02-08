@@ -1,15 +1,15 @@
-# trech201_v2
+# Virtualization 
 v2
 
 ## DevOps
 
-## Ease of use-  Other teams are going to ise the tools we cerate. they wont use them if they are not user friendly.
+## Ease of use- Other teams are going to ise the tools we cerate. they wont use them if they are not user friendly.
 
-## flexibility - it ca be easy to get locked in to using a specific product tool or softrware. and then it becomes hard for them to keep up with industy changes .
+## flexibility - it can be easy to get locked in to using a specific product tool or softrware. and then it becomes hard for them to keep up with industy changes .
 
 ## Robustness -  we need as close to 100% uptime as possible for our company services 
 
-## Cost -  cost is often overlooked we nned to make sure the company is being effcient as possible in its trch dealings.  for example how powerful a machine do we need to conduct a task. Do we nned curtain servers running? ect.
+## Cost -  cost is often overlooked we need to make sure the company is being effcient as possible in its trch dealings.  for example how powerful a machine do we need to conduct a task. Do we nned curtain servers running? ect.
 #
 
 ## Risk manager 
@@ -33,7 +33,7 @@ Microservices - Microservices architecture is tailor-made for DevOps with its se
 
 # What makes a good Dev Environment?
 
-
+![img_1.png](img_1.png)
 
 
 
@@ -91,10 +91,29 @@ Microservices - Microservices architecture is tailor-made for DevOps with its se
 
 
 ## SSH
+## How to get Vagrant and virtual box up and running 
 
-## How to reslove error message
+- Open your git bash terminal and enter the following "cd(FILENAME")
+- Once you've gone that you should now be in the correct file now the command you need to enter is `vagrant init ubuntu/xenial64`. This then this tells vagrant what type of system we want to use
+- You should now see the following `A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.`. Please note that you will also see a vagrant folder locally in "tech201_virtualization" in vscode
+- We now used `vagrant up` to boot-up our virtual machine 
+- Now we need to securley got into our vm by using SSH in our GitBash terminal. To do this type `vagrant ssh`.
+- `ls - a` is to see hidden folders (not mandatory) put important to know 
+- We will now use `sudo apt-get`. this is used to get something from the internet.
+- To update everything on the OS type `sudo apt-get update -y`
+- Next use `sudo apt-get install nginx -y` to install our program for our website
+- Finally use `sudo systemctl start nginx` then `sudo systemctl status nginx` to run the website.
+- Also in order to make create a fixed address ,so it's easier for developers all we have to do is add `config.vm.network "private_network", ip: "192.168.10.100"` and this goes just before the end statement.
+- Now Exit vm using `exit` and use `vagrant reload` to reboot your vm with the new setting. 
+- Now when you search the ip you should see 
+- ![img.png](img.png)
+Well done !
+## An Error I faced and how it was resolved.
 
-During the vagrant "up stage" i encounted an error message that read. 
+During the vagrant "up stage" I encountered  an error message that read. 
 ```` git 
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Box 'ubuntu/xenial64' could not be found. Attempting to find and install...
@@ -111,18 +130,18 @@ Error: schannel: next InitializeSecurityContext failed: Unknown error (0x8009201
 `````
 
 
-To troubleshoot this issue i found a really good article on how to fix it from the following. https://devopslite.com/vagrant-was-unable-to-check-revocation-for-the-certificate/.
-After the following these steps i have found that i needed to add the following.
+To troubleshoot this issue I found a perfect article on how to fix it from the following. https://devopslite.com/vagrant-was-unable-to-check-revocation-for-the-certificate/.
+After the following these steps I have found that I needed to add the following.
 ````
 
 config.vm.box_download_insecure=true
 
 ````
 
-By doing this it allowe me to complete the install of the virtual machine on virtual box and has removed the error. The terminal now shows this.
+By doing this it allowe me to complete the installation of the virtual machine on virtual box and has removed the error. The terminal now shows this.
 
 
-`````
+````` 
 
 $ vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
@@ -187,3 +206,5 @@ or on a per folder basis within the Vagrantfile:
     default: /vagrant => C:/Users/Walee/tech201_virtualisation.git/trech201_v2
 ``````
 This shows that the virtual machine is now up and running via virtual box.
+
+
