@@ -1,4 +1,4 @@
-# Advanced bash commands 
+# Advanced bash commands ![img_6.png](img_6.png)
 
 - `uname`- shows system info opperation system
 - flag- to give linux specific instructions 
@@ -74,4 +74,49 @@
 ## Wildcards
 
 - `ls f*` this will show all files with ls but only the ones with "f" inside it 
+- `ls -l` this will list permissions 
+- `- r`- the r stands for read 
+- ` -w`- write permissions 
+- ` - x` being able to execute the file 
+- `sudo chmod` change permissions 
+- `u+x testfile.txt` the plus is used to add permissions and the u stands for users 
+- `sudo chmod 777 (file name)` gives everyone all permissions 
+- `top` gives all running processes 
+- `ps` shows your processes 
+- `ps aux` all background systems 
+- `kill` kills a process 
+- `kill -9` is used to get rid of a really stubborn process 
+- `&` is used to run in the background, so you don't get locked out of your terminal 
+- `fg` can be used to bring back a process 
+- `crtl z` ends a process 
+- `tree` works like ls however it looks a bit better 
 - 
+## The three diffrent sets of people
+
+- Owner (u)
+- Group (g)
+-  Others/all (o)
+
+![img_2.png](img_2.png)
+
+
+
+# How to get your app up and running
+
+- First you need to `cd` into environment in vs code
+- if nested `cd` inot environment again
+- Then `cd` in spec-test
+- Now you need to hit `ls`
+- You should see the following ![img_3.png](img_3.png)
+- Run `gem install bundler` ruby testing framework ![img_4.png](img_4.png)
+- Run `bundle` should only need to do it once 
+- run `rake spec` this test your environment 
+- `sudo apt-get update -y`
+- `sudo apt-get upgrade` - be careful with upgrade 
+- Once you have done that run `sudo apt-get install nginx`
+- Run `sudo systemctl enable nginx` 
+- Now at this point what you can do is check to see nginx is working for you using the ip address
+-  Once all steps on `rake spec` are green go into app folder using `cd app`. Now `npm install` this is to install the app. `node app.js` this will run in the foreground and not allow you to do anything. once that is complete you should see![img_5.png](img_5.png)
+- This means that we have deployed our developers' application.
+
+- Finally, oyu need to go back to your browser and on the app you need to access it on `port 3000`. and once you do that you should see your working app.
