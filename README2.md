@@ -120,3 +120,28 @@
 - This means that we have deployed our developers' application.
 
 - Finally, oyu need to go back to your browser and on the app you need to access it on `port 3000`. and once you do that you should see your working app.
+
+## Provisioning 
+
+- First you need to create a file and name it "provision.sh"
+- You will now need to add the following code to your top line. `#!/bin/bash` . this lets you know that it is a script and it needs to be run in the terminal.
+- Now we need to add  update and upgrade by doing `sudo apt-get update -y
+sudo apt-get upgrade -y` and it should now look like this ![img_8.png](img_8.png)
+- We now need to Install Nginx by doing the following. `sudo apt-get install nginx -y`
+- We now need to start Ngingx and you will do this by. `sudo systemctl enable nginx -y`
+- Now we need to download nodejs and we will do that by entering the following. `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install nodejs -y`.
+- We need to now Install pm2 and we will do that entering the following. `sudo npm install pm2 -g
+npm install
+`
+- This step is extremely important because we need to make sure we `cd` into our app folder because we need to find `app.js` in our app folder.
+- Lastly we need to install node.js and we will do this by. Entering `node app.js`. 
+And it should look like so :
+![img_9.png](img_9.png)
+
+## Update your Vagrant folder 
+
+- To your vagrant folder you need to add the following. `config.vm.provision "shell", path: "provision.sh"`
+![img_10.png](img_10.png)
+- Now with all of these steps complete your app should be ready to use on you IP address please note you need to add "3000" at the end of the ip for this to work. And it should look like so.
+- ![img_11.png](img_11.png)
