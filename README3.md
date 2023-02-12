@@ -36,3 +36,42 @@ image taken from imperva.com
 - You now need to restart using `sudo systemctl restart nginx`
 - And once you refresh your web page you should now be able to access the page without seeing `:3000`.
 
+## How to connect your app to your DB.
+
+- first you need to add your sudo add relsesase key for mongo.
+- then add your echo commaand 
+- now apt-get update. to confirm any updates 
+- now sudo apt-get upgrade
+- now you need to install mongo 3.2.2
+- check satus to see if its there
+- now we want to start it using `sudo systemctl start mongod`
+- Now `enable mongod`
+- we now need to change a particular file by using `sudo nano`
+- the folder is in /ect/mongod.conf
+- scroll to network interfaces and change the bindip to 0.0.0.0 (the best practice recommends to put in your specific ip)
+- now we need to restart mongo DB using sudo systemctl restrt mongod
+- now we need to enable using sudo systemctl enable mongod
+- at this stage run a status check
+
+
+Now move to app
+
+- An envirmonment variable allows us to specify information of our envirmonmnet its needed to connect app to database 
+- `MY_VAR=hello`
+- `echo $MY_VAR` To see content of variable 
+- a noraml variable is only acessable in the current process youre running. 
+- An environment variable makes it accesable to the environment.
+- `export my_var=hello` this makes your evniroment variable
+- `sudo nano .bashrc` (add image)
+- now run this file using `source .bashrc`
+- now `printenv`
+This gives the app the information needed to connect to the db.
+- Now `export db_host=mongodb://192.168.10.150:27017/posts`
+- `printenv db_host`
+- now cd into app 
+-`pnm install`
+- node seeds/seed.js this creates the database 
+- `node app.js`
+
+- And if all went well you should see the following. 
+- ![img_13.png](img_13.png)
