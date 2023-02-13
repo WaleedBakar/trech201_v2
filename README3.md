@@ -75,3 +75,35 @@ This gives the app the information needed to connect to the db.
 
 - And if all went well you should see the following. 
 - ![img_13.png](img_13.png)
+
+
+# Automate Multimachine Vagrant 
+
+Stage 1:
+
+- In this we needed to Find a way to provision the database vm in your Vagrantfile. Note the provision file for the database(db) machine needs to be separate and thus in a separate folder.
+
+Provision it to have MongoDB after a 'vagrant up'
+
+Get /posts working. 
+
+Frst we created provioning files for both app and database which looked like this.
+
+App:
+![img_14.png](img_14.png)
+
+Database: 
+![img_15.png](img_15.png)
+ -What this now allows us to do is have our database provisioned when we run `vagrant up`
+- I have not seeded by database just yet so at this stage you should see the following:
+- ![img_16.png](img_16.png)
+
+In Stage 2 we will do the following. Find a way to start and enable MongoDB in your provision file.
+
+Find a way to edit the mongod.conf via your db provision file.
+
+Get /posts working. All you should need to do now after 'vagrant up' is enter the app vm and export the env variable. From there you should simply navigate to the correct folder and run the normal commands to start the app:
+
+npm install
+node seeds/seed.js
+npm start.
