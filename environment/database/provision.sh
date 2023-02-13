@@ -12,9 +12,21 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 # Install the database
+sudo apt-get install mongodb-org=3.2.20 -y 
 sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20
 
 
 # Start and enable database 
 sudo systemctl start mongod
 sudo systemctl enable mongod
+
+
+# 
+
+sudo rm /etc/mongod.conf
+sudo cp environment/database/mongod.conf /etc/mongod.conf
+
+# Restart and Enable 
+
+sudo systemctl restart mongod
+sudo systemctl enable mongod 

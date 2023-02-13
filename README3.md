@@ -113,3 +113,33 @@ Get /posts working. All you should need to do now after 'vagrant up' is enter th
 npm install
 node seeds/seed.js
 npm start.
+
+- To start with stage two i needed to find a way to provision a `mongod.conf` file and i did this by doing `sudo nano /etc/mongod.conf`. We now need to copy what is in this file and move on to the next step.
+- In this step we need to create a new file in our database folder and call this 'mongod.cof' and here is where you need to paste what you have copied from the nano file.
+- Now your `mongod.conf` should look like the following.
+- ![img_18.png](img_18.png)
+- We now need to move back to our apps provision folder where we will create our environment variable.
+- You can do this by inputting the following. 
+````
+ Making enirovment variable
+
+echo 'export DB_HOST=mongodb://192.168.10.150:27017/posts' >> ~/.bashrc
+source .bashrc
+````
+This is important because we need this variable to be persistent.
+
+- So now we have all of those different levels of automation we should now be able to shh into our app and run it to see if its working.
+- To do that input the following into a git bash
+`vagrant ssh app` 
+- Now we should make sure we cd into the correct location which is the `app/`
+- Once you are in app run `npm install`
+- We now need to run `node seeds/seed.js`
+- This should return: 
+```
+Database Cleared
+Database Seeded
+```
+What this means is that our database has been embedded 
+
+- Now lastly we need to run `npm start` to ensure our app is running. If successful we should see the following:
+![img_19.png](img_19.png)
