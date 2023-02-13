@@ -98,7 +98,13 @@ Database:
 - I have not seeded by database just yet so at this stage you should see the following:
 - ![img_16.png](img_16.png)
 
-In Stage 2 we will do the following. Find a way to start and enable MongoDB in your provision file.
+- We Also made the following changes to our vagrant file. We added a line for the path of where to get things from our database and it should look like:
+- ![img_17.png](img_17.png)
+
+
+
+
+Stage 2 we will do the following. Find a way to start and enable MongoDB in your provision file.
 
 Find a way to edit the mongod.conf via your db provision file.
 
